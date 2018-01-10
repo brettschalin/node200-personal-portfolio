@@ -1,9 +1,0 @@
-version: 1
-deployment:
-  prod:
-    branch: master
-    heroku:
-      appname: bs-node200-personal-portfolio
-machine:
-  node:
-    version: 8.1.4
