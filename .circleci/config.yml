@@ -37,7 +37,7 @@ jobs:
       - run: yarn test
 
 deployment:
-  prod:
+  staging:
     branch: master
     heroku:
       appname: bs-node200-personal-portfolio
