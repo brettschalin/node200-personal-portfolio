@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Thanks</title>
+</head>
+
+<body>
+    <% if(!err) { %>
+        <div>
+            Thank you,
+            <%= contact.firstName %>
+            <%= contact.lastName %>. My team of highly trained monkeys will get in touch with you soon.
+        </div>
+        <% } else { %>
+            <div>Something went wrong in logging your information: <%= err %></div>
+        <% } %>
+</body>
+
+</html>
