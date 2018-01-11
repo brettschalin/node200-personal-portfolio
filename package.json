@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "my personal portfolio",
+  "start": "node server.js",
   "main": "server.js",
   "scripts": {
     "test": "echo \"No tests specified\""

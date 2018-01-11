@@ -1,3 +1,14 @@
+
+
+
+//TODO:
+//Styling
+//Figure out how to get it working on Heroku
+//More styling
+
+
+
+
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -25,7 +36,7 @@ jwtClient.authorize(function (err, tokens) {
 });
 
 //Get the current row so we don't accidentally overwrite anything
-var currentRow = 2; //Sheets is 1-based and the first row has headers
+var currentRow = 2; //google.sheets is 1-based and the first row has headers
 google.sheets('v4').spreadsheets.values.get({
     auth: jwtClient,
     spreadsheetId: "11lnUN4nB94zpf8PEoG3I99KXY-LAIXnv7WQlfaJNO2U",
@@ -35,7 +46,9 @@ google.sheets('v4').spreadsheets.values.get({
         console.log("Failed to load contact data:" + err);
         return;
     }
-    currentRow += res.values.length;
+    if (res.values) {
+        currentRow += res.values.length;
+    }
 });
 
 
@@ -71,19 +84,17 @@ app.post('/thanks', (req, res) => {
 });
 
 
-
-app.listen(8080, () => {
-    console.log('listening at http://localhost:8080');
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+    console.log(`listening at http://localhost:${port}`);
 });
 
 
 
 
 function logResponse(res) {
-    //do authorization if needed
-    //then update the sheet
 
-    //The sheet should be set up so each new entry is on its own row
+    //The sheet is set up so each new entry is on its own row
     //lines are formatted like: [[firstName] [lastName] [email] [message] [date]]
 
 
