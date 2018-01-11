@@ -1,14 +1,3 @@
-
-
-
-//TODO:
-//Styling
-//Figure out how to get it working on Heroku
-//More styling
-
-
-
-
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
@@ -30,8 +19,6 @@ jwtClient.authorize(function (err, tokens) {
     if (err) {
         console.log(err);
         return;
-    } else {
-        console.log("Successfully connected!");
     }
 });
 

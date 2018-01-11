@@ -2,18 +2,36 @@
 
 <head>
     <title>Thanks</title>
+    <style>
+        body {
+            background: linear-gradient(white, #ffddcc);
+        }
+
+        #error {
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <% if(!err) { %>
         <div>
-            Thank you,
-            <%= contact.firstName %>
-            <%= contact.lastName %>. My team of highly trained monkeys will get in touch with you soon.
+            <p>Thank you,
+                <%= contact.firstName %>
+                    <%= contact.lastName %>. My team of highly trained monkeys will get in touch with you soon.
+            </p>
         </div>
         <% } else { %>
-            <div>Something went wrong in logging your information: <%= err %></div>
-        <% } %>
+            <div>
+                <p id="error">Something went wrong in logging your information.
+                    <br>
+                    It likely isn't your fault. Here's more details:
+                    <br>
+                    <%= err %>
+                </p>
+            </div>
+            <% } %>
 </body>
 
 </html>
