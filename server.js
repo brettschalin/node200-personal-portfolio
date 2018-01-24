@@ -49,10 +49,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/contact', (req, res) => {
-    res.render('contact');
-});
-
 app.post('/thanks', (req, res) => {
     //calls to google sheets api
     //to log shits and stuff
@@ -69,12 +65,6 @@ app.post('/thanks', (req, res) => {
 
         });
 });
-
-//remove this after styling is done
-app.get('/thanks', (req, res) => {
-    res.render('thanks', {contact: {firstName: "Testy", lastName: "McTestFace"}, err: null});
-});
-
 
 
 const port = process.env.PORT || 8080;
