@@ -38,12 +38,12 @@ google.sheets('v4').spreadsheets.values.get({
     }
 });
 
-
+app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('views', './views');
+app.set('views', './public/views');
 app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     res.render('index');
@@ -69,6 +69,12 @@ app.post('/thanks', (req, res) => {
 
         });
 });
+
+//remove this after styling is done
+app.get('/thanks', (req, res) => {
+    res.render('thanks', {contact: {firstName: "Testy", lastName: "McTestFace"}, err: null});
+});
+
 
 
 const port = process.env.PORT || 8080;

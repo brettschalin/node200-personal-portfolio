@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <title> Brett's Portfolio </title>
+    <link rel='stylesheet' href='../css/styles.css' type='text/css'>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css'>
+
+    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>.
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js'></script>
+
+    <script>
+        //Get tabs working
+        $(document).ready(function () {
+            $('.tabs').tabs();
+            $('.modal').modal();
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <div id='root'>
+        <div class='row'>
+            <div id='header' class='col s3'>
+                <h5>Brett Schalin</h5>
+                <p>Current student at
+                    <a href='https://origincodeacademy.com'>Origin Code Academy</a>, and aspiring developer.
+                </p>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='github-card' data-user='brettschalin'></div>
+            <a id='contact-button' class='waves-effect waves-light btn modal-trigger' href='#modal1'>Contact me</a>
+        </div>
+        <div id='project-tabs' class='row'>
+            <div class='col s12'>
+                <ul class='tabs'>
+                    <li class='tab col s3'>
+                        <a href='#tab1'>Crime Map</a>
+                    </li>
+                    <li class='tab col s3'>
+                        <a href='#tab2'>VSTDA</a>
+                    </li>
+                    <li class='tab col s3'>
+                        <a href='#tab3'>Top Spots</a>
+                    </li>
+                </ul>
+            </div>
+            <div id='tab1' class='col s12'>
+                <p>A simple (interactive, thanks to Google plugins) crime map.</p>
+                <br>
+                <a href='https://github.com/brettschalin/react100-hackathon' target='_blank'>
+                    <img src='../images/hackathon.png' alt='Hackathon'>
+                </a>
+                </p>
+            </div>
+            <div id='tab2' class='col s12'>
+                <p>A Very Simple To Do App.</p>
+                <br>
+                <a href='https://github.com/brettschalin/startnow-react100-vstda' target='_blank'>
+                    <img src='../images/vstda.png' alt='VSTDA'>
+                </a>
+                </p>
+            </div>
+            <div id='tab3' class='col s12'>
+                <p>Ever wonder what there is to do in San Diego? Now you don't have to.</p>
+                <br>
+                <a href='https://github.com/brettschalin/startnow-react100-san-diego-top-spots' target='_blank'>
+                    <img src='../images/topspots.png' alt='Top Spots'>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+    <div id='modal1' class='modal'>
+        <div id='contact-content' class='modal-content'>
+            <form action="/thanks" method="POST">
+                <label for="firstName">First Name:</label>
+                <input id="firstName" name="firstName" type="text">
+
+                <br>
+
+                <label for="lastName">Last Name:</label>
+                <input id="lastName" name="lastName" type="text">
+
+                <br>
+
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="text">
+
+                <br>
+                <label for="message">Message:</label>
+                <input id="message" name="message" type="text">
+
+                <br>
+
+                <input class='waves-effect waves-teal btn-flat' type="submit" />
+
+            </form>
+        </div>
+    </div>
+</body>
+
+<script src='https://lab.lepture.com/github-cards/widget.js'></script>
+
+
+</html>
