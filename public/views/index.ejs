@@ -2,24 +2,33 @@
 
 <head>
     <title> Brett's Portfolio </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
     <link rel='stylesheet' href='../css/styles.css' type='text/css'>
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css'>
 
-    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet'>
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>.
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js'></script>
 
     <script>
-        //Get tabs working
-        $(document).ready(function () {
+        
+        $(document).ready(function() {
             $('.tabs').tabs();
-            $('.modal').modal();
+            $('#modal1').modal({
+                //put this (below) in here (https://jsfiddle.net/ewukp0xc/, substitute variable names as needed)
+                //marvel at how it actually works there but not here
+                ready: function (modal, trigger) {
+                    alert("ready callback is actually running");
+                    $('#firstName').focus();
+                    console.log(modal, trigger);
+                },
+            });
         });
+
 
     </script>
 
@@ -83,32 +92,33 @@
         </div>
         <div id='footer'>
             <span>No copyright (please don't steal), Brett Schalin, 2018 </span>
-            <a id='contact-button' class='waves-effect waves-light btn modal-trigger' href='#modal1'>Contact me</a>
+            <a id='contact-button' class='waves-effect waves-light btn modal-trigger' data-target='modal1'>Contact me</a>
         </div>
     </div>
     <div id='modal1' class='modal'>
+        <span class='modal-action modal-close waves-effect waves-teal btn-flat' style='float: right;'>X</span>
         <div id='contact-content' class='modal-content'>
-            <form action="/thanks" method="POST">
-                <label for="firstName">First Name:</label>
-                <input id="firstName" name="firstName" type="text">
+            <form action='/thanks' method='POST'>
+                <label for='firstName'>First Name:</label>
+                <input id='firstName' name='firstName' type='text'>
 
                 <br>
 
-                <label for="lastName">Last Name:</label>
-                <input id="lastName" name="lastName" type="text">
+                <label for='lastName'>Last Name:</label>
+                <input id='lastName' name='lastName' type='text'>
 
                 <br>
 
-                <label for="email">Email:</label>
-                <input id="email" name="email" type="text">
+                <label for='email'>Email:</label>
+                <input id='email' name='email' type='text'>
 
                 <br>
-                <label for="message">Message:</label>
-                <input id="message" name="message" type="text">
+                <label for='message'>Message:</label>
+                <input id='message' name='message' type='text'>
 
                 <br>
 
-                <input id='submit' class='waves-effect waves-teal btn-flat' type="submit" />
+                <input id='submit' class='waves-effect waves-teal btn-flat' type='submit' />
 
             </form>
         </div>
